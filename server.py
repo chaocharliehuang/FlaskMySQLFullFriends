@@ -12,6 +12,13 @@ def index():
 
 @app.route('/add_friend', methods=['POST'])
 def add_friend():
+    data = {
+        'first_name': request.form['name'].split()[0],
+        'last_name': request.form['name'].split()[1],
+        'age': request.form['age'],
+    }
+    insert_query = "INSERT INTO friends (first_name, last_name, age, created_at, updated_at) VALUES (:first_name, :last_name, :age, NOW(), NOW())"
+    mysql.query_db(insert_query, data)
     return redirect('/')
 
 app.run(debug=True)
