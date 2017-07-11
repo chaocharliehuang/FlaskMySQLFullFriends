@@ -22,12 +22,14 @@
                 <th>Friend Since</th>
                 <th></th>
             </tr>
+            {% for friend in friends %}
             <tr>
-                <td>Jay Patel</td>
-                <td>190</td>
-                <td>Jan 15th</td>
-                <td>2015</td>
+                <td>{{ friend['name'] }}</td>
+                <td>{{ friend['age'] }}</td>
+                <td>{{ friend['month_day'] }}</td>
+                <td>{{ friend['year'] }}</td>
             </tr>
+            {% endfor %}
         </table>
 
         <h1>Add a Friend:</h1>
